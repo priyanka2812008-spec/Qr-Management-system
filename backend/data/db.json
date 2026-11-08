@@ -1,0 +1,1746 @@
+{
+  "event": {
+    "id": "hu-hackathon-2026",
+    "name": "Hacker's Unity Hackathon 2026 - Day 1",
+    "status": "LIVE",
+    "venue": "Main Tech Auditorium, Convention Center",
+    "sheetId": "Seating_Plan_HU26",
+    "lastSynced": "2026-11-08T13:33:21.039Z"
+  },
+  "tables": [
+    {
+      "id": "T1",
+      "name": "Table 1",
+      "row": "A",
+      "capacity": 8,
+      "seats": [
+        {
+          "id": "T1-Seat-1",
+          "tableNo": "T1",
+          "row": "A",
+          "seatNumber": 1,
+          "label": "T1 - Row A - Seat 1",
+          "type": "reserved",
+          "status": "RESERVED",
+          "participantId": null
+        },
+        {
+          "id": "T1-Seat-2",
+          "tableNo": "T1",
+          "row": "A",
+          "seatNumber": 2,
+          "label": "T1 - Row A - Seat 2",
+          "type": "reserved",
+          "status": "RESERVED",
+          "participantId": null
+        },
+        {
+          "id": "T1-Seat-3",
+          "tableNo": "T1",
+          "row": "A",
+          "seatNumber": 3,
+          "label": "T1 - Row A - Seat 3",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T1-Seat-4",
+          "tableNo": "T1",
+          "row": "A",
+          "seatNumber": 4,
+          "label": "T1 - Row A - Seat 4",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T1-Seat-5",
+          "tableNo": "T1",
+          "row": "A",
+          "seatNumber": 5,
+          "label": "T1 - Row A - Seat 5",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T1-Seat-6",
+          "tableNo": "T1",
+          "row": "A",
+          "seatNumber": 6,
+          "label": "T1 - Row A - Seat 6",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T1-Seat-7",
+          "tableNo": "T1",
+          "row": "A",
+          "seatNumber": 7,
+          "label": "T1 - Row A - Seat 7",
+          "type": "general",
+          "status": "SEATED",
+          "participantId": "p-191"
+        },
+        {
+          "id": "T1-Seat-8",
+          "tableNo": "T1",
+          "row": "A",
+          "seatNumber": 8,
+          "label": "T1 - Row A - Seat 8",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        }
+      ]
+    },
+    {
+      "id": "T2",
+      "name": "Table 2",
+      "row": "A",
+      "capacity": 8,
+      "seats": [
+        {
+          "id": "T2-Seat-1",
+          "tableNo": "T2",
+          "row": "A",
+          "seatNumber": 1,
+          "label": "T2 - Row A - Seat 1",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T2-Seat-2",
+          "tableNo": "T2",
+          "row": "A",
+          "seatNumber": 2,
+          "label": "T2 - Row A - Seat 2",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T2-Seat-3",
+          "tableNo": "T2",
+          "row": "A",
+          "seatNumber": 3,
+          "label": "T2 - Row A - Seat 3",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T2-Seat-4",
+          "tableNo": "T2",
+          "row": "A",
+          "seatNumber": 4,
+          "label": "T2 - Row A - Seat 4",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T2-Seat-5",
+          "tableNo": "T2",
+          "row": "A",
+          "seatNumber": 5,
+          "label": "T2 - Row A - Seat 5",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T2-Seat-6",
+          "tableNo": "T2",
+          "row": "A",
+          "seatNumber": 6,
+          "label": "T2 - Row A - Seat 6",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T2-Seat-7",
+          "tableNo": "T2",
+          "row": "A",
+          "seatNumber": 7,
+          "label": "T2 - Row A - Seat 7",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T2-Seat-8",
+          "tableNo": "T2",
+          "row": "A",
+          "seatNumber": 8,
+          "label": "T2 - Row A - Seat 8",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        }
+      ]
+    },
+    {
+      "id": "T3",
+      "name": "Table 3",
+      "row": "A",
+      "capacity": 8,
+      "seats": [
+        {
+          "id": "T3-Seat-1",
+          "tableNo": "T3",
+          "row": "A",
+          "seatNumber": 1,
+          "label": "T3 - Row A - Seat 1",
+          "type": "general",
+          "status": "SEATED",
+          "participantId": "p-187"
+        },
+        {
+          "id": "T3-Seat-2",
+          "tableNo": "T3",
+          "row": "A",
+          "seatNumber": 2,
+          "label": "T3 - Row A - Seat 2",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T3-Seat-3",
+          "tableNo": "T3",
+          "row": "A",
+          "seatNumber": 3,
+          "label": "T3 - Row A - Seat 3",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T3-Seat-4",
+          "tableNo": "T3",
+          "row": "A",
+          "seatNumber": 4,
+          "label": "T3 - Row A - Seat 4",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T3-Seat-5",
+          "tableNo": "T3",
+          "row": "A",
+          "seatNumber": 5,
+          "label": "T3 - Row A - Seat 5",
+          "type": "general",
+          "status": "SEATED",
+          "participantId": "p-185"
+        },
+        {
+          "id": "T3-Seat-6",
+          "tableNo": "T3",
+          "row": "A",
+          "seatNumber": 6,
+          "label": "T3 - Row A - Seat 6",
+          "type": "general",
+          "status": "SEATED",
+          "participantId": "p-186"
+        },
+        {
+          "id": "T3-Seat-7",
+          "tableNo": "T3",
+          "row": "A",
+          "seatNumber": 7,
+          "label": "T3 - Row A - Seat 7",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T3-Seat-8",
+          "tableNo": "T3",
+          "row": "A",
+          "seatNumber": 8,
+          "label": "T3 - Row A - Seat 8",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        }
+      ]
+    },
+    {
+      "id": "T4",
+      "name": "Table 4",
+      "row": "A",
+      "capacity": 8,
+      "seats": [
+        {
+          "id": "T4-Seat-1",
+          "tableNo": "T4",
+          "row": "A",
+          "seatNumber": 1,
+          "label": "T4 - Row A - Seat 1",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T4-Seat-2",
+          "tableNo": "T4",
+          "row": "A",
+          "seatNumber": 2,
+          "label": "T4 - Row A - Seat 2",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T4-Seat-3",
+          "tableNo": "T4",
+          "row": "A",
+          "seatNumber": 3,
+          "label": "T4 - Row A - Seat 3",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T4-Seat-4",
+          "tableNo": "T4",
+          "row": "A",
+          "seatNumber": 4,
+          "label": "T4 - Row A - Seat 4",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T4-Seat-5",
+          "tableNo": "T4",
+          "row": "A",
+          "seatNumber": 5,
+          "label": "T4 - Row A - Seat 5",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T4-Seat-6",
+          "tableNo": "T4",
+          "row": "A",
+          "seatNumber": 6,
+          "label": "T4 - Row A - Seat 6",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T4-Seat-7",
+          "tableNo": "T4",
+          "row": "A",
+          "seatNumber": 7,
+          "label": "T4 - Row A - Seat 7",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T4-Seat-8",
+          "tableNo": "T4",
+          "row": "A",
+          "seatNumber": 8,
+          "label": "T4 - Row A - Seat 8",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        }
+      ]
+    },
+    {
+      "id": "T5",
+      "name": "Table 5",
+      "row": "B",
+      "capacity": 8,
+      "seats": [
+        {
+          "id": "T5-Seat-1",
+          "tableNo": "T5",
+          "row": "B",
+          "seatNumber": 1,
+          "label": "T5 - Row B - Seat 1",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T5-Seat-2",
+          "tableNo": "T5",
+          "row": "B",
+          "seatNumber": 2,
+          "label": "T5 - Row B - Seat 2",
+          "type": "general",
+          "status": "SEATED",
+          "participantId": "p-194"
+        },
+        {
+          "id": "T5-Seat-3",
+          "tableNo": "T5",
+          "row": "B",
+          "seatNumber": 3,
+          "label": "T5 - Row B - Seat 3",
+          "type": "general",
+          "status": "SEATED",
+          "participantId": "p-195"
+        },
+        {
+          "id": "T5-Seat-4",
+          "tableNo": "T5",
+          "row": "B",
+          "seatNumber": 4,
+          "label": "T5 - Row B - Seat 4",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T5-Seat-5",
+          "tableNo": "T5",
+          "row": "B",
+          "seatNumber": 5,
+          "label": "T5 - Row B - Seat 5",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T5-Seat-6",
+          "tableNo": "T5",
+          "row": "B",
+          "seatNumber": 6,
+          "label": "T5 - Row B - Seat 6",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T5-Seat-7",
+          "tableNo": "T5",
+          "row": "B",
+          "seatNumber": 7,
+          "label": "T5 - Row B - Seat 7",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T5-Seat-8",
+          "tableNo": "T5",
+          "row": "B",
+          "seatNumber": 8,
+          "label": "T5 - Row B - Seat 8",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        }
+      ]
+    },
+    {
+      "id": "T6",
+      "name": "Table 6",
+      "row": "B",
+      "capacity": 8,
+      "seats": [
+        {
+          "id": "T6-Seat-1",
+          "tableNo": "T6",
+          "row": "B",
+          "seatNumber": 1,
+          "label": "T6 - Row B - Seat 1",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T6-Seat-2",
+          "tableNo": "T6",
+          "row": "B",
+          "seatNumber": 2,
+          "label": "T6 - Row B - Seat 2",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T6-Seat-3",
+          "tableNo": "T6",
+          "row": "B",
+          "seatNumber": 3,
+          "label": "T6 - Row B - Seat 3",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T6-Seat-4",
+          "tableNo": "T6",
+          "row": "B",
+          "seatNumber": 4,
+          "label": "T6 - Row B - Seat 4",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T6-Seat-5",
+          "tableNo": "T6",
+          "row": "B",
+          "seatNumber": 5,
+          "label": "T6 - Row B - Seat 5",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T6-Seat-6",
+          "tableNo": "T6",
+          "row": "B",
+          "seatNumber": 6,
+          "label": "T6 - Row B - Seat 6",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T6-Seat-7",
+          "tableNo": "T6",
+          "row": "B",
+          "seatNumber": 7,
+          "label": "T6 - Row B - Seat 7",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T6-Seat-8",
+          "tableNo": "T6",
+          "row": "B",
+          "seatNumber": 8,
+          "label": "T6 - Row B - Seat 8",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        }
+      ]
+    },
+    {
+      "id": "T7",
+      "name": "Table 7",
+      "row": "B",
+      "capacity": 8,
+      "seats": [
+        {
+          "id": "T7-Seat-1",
+          "tableNo": "T7",
+          "row": "B",
+          "seatNumber": 1,
+          "label": "T7 - Row B - Seat 1",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T7-Seat-2",
+          "tableNo": "T7",
+          "row": "B",
+          "seatNumber": 2,
+          "label": "T7 - Row B - Seat 2",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T7-Seat-3",
+          "tableNo": "T7",
+          "row": "B",
+          "seatNumber": 3,
+          "label": "T7 - Row B - Seat 3",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T7-Seat-4",
+          "tableNo": "T7",
+          "row": "B",
+          "seatNumber": 4,
+          "label": "T7 - Row B - Seat 4",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T7-Seat-5",
+          "tableNo": "T7",
+          "row": "B",
+          "seatNumber": 5,
+          "label": "T7 - Row B - Seat 5",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T7-Seat-6",
+          "tableNo": "T7",
+          "row": "B",
+          "seatNumber": 6,
+          "label": "T7 - Row B - Seat 6",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T7-Seat-7",
+          "tableNo": "T7",
+          "row": "B",
+          "seatNumber": 7,
+          "label": "T7 - Row B - Seat 7",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T7-Seat-8",
+          "tableNo": "T7",
+          "row": "B",
+          "seatNumber": 8,
+          "label": "T7 - Row B - Seat 8",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        }
+      ]
+    },
+    {
+      "id": "T8",
+      "name": "Table 8",
+      "row": "B",
+      "capacity": 8,
+      "seats": [
+        {
+          "id": "T8-Seat-1",
+          "tableNo": "T8",
+          "row": "B",
+          "seatNumber": 1,
+          "label": "T8 - Row B - Seat 1",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T8-Seat-2",
+          "tableNo": "T8",
+          "row": "B",
+          "seatNumber": 2,
+          "label": "T8 - Row B - Seat 2",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T8-Seat-3",
+          "tableNo": "T8",
+          "row": "B",
+          "seatNumber": 3,
+          "label": "T8 - Row B - Seat 3",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T8-Seat-4",
+          "tableNo": "T8",
+          "row": "B",
+          "seatNumber": 4,
+          "label": "T8 - Row B - Seat 4",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T8-Seat-5",
+          "tableNo": "T8",
+          "row": "B",
+          "seatNumber": 5,
+          "label": "T8 - Row B - Seat 5",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T8-Seat-6",
+          "tableNo": "T8",
+          "row": "B",
+          "seatNumber": 6,
+          "label": "T8 - Row B - Seat 6",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T8-Seat-7",
+          "tableNo": "T8",
+          "row": "B",
+          "seatNumber": 7,
+          "label": "T8 - Row B - Seat 7",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T8-Seat-8",
+          "tableNo": "T8",
+          "row": "B",
+          "seatNumber": 8,
+          "label": "T8 - Row B - Seat 8",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        }
+      ]
+    },
+    {
+      "id": "T9",
+      "name": "Table 9",
+      "row": "C",
+      "capacity": 8,
+      "seats": [
+        {
+          "id": "T9-Seat-1",
+          "tableNo": "T9",
+          "row": "C",
+          "seatNumber": 1,
+          "label": "T9 - Row C - Seat 1",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T9-Seat-2",
+          "tableNo": "T9",
+          "row": "C",
+          "seatNumber": 2,
+          "label": "T9 - Row C - Seat 2",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T9-Seat-3",
+          "tableNo": "T9",
+          "row": "C",
+          "seatNumber": 3,
+          "label": "T9 - Row C - Seat 3",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T9-Seat-4",
+          "tableNo": "T9",
+          "row": "C",
+          "seatNumber": 4,
+          "label": "T9 - Row C - Seat 4",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T9-Seat-5",
+          "tableNo": "T9",
+          "row": "C",
+          "seatNumber": 5,
+          "label": "T9 - Row C - Seat 5",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T9-Seat-6",
+          "tableNo": "T9",
+          "row": "C",
+          "seatNumber": 6,
+          "label": "T9 - Row C - Seat 6",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T9-Seat-7",
+          "tableNo": "T9",
+          "row": "C",
+          "seatNumber": 7,
+          "label": "T9 - Row C - Seat 7",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T9-Seat-8",
+          "tableNo": "T9",
+          "row": "C",
+          "seatNumber": 8,
+          "label": "T9 - Row C - Seat 8",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        }
+      ]
+    },
+    {
+      "id": "T10",
+      "name": "Table 10",
+      "row": "C",
+      "capacity": 8,
+      "seats": [
+        {
+          "id": "T10-Seat-1",
+          "tableNo": "T10",
+          "row": "C",
+          "seatNumber": 1,
+          "label": "T10 - Row C - Seat 1",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T10-Seat-2",
+          "tableNo": "T10",
+          "row": "C",
+          "seatNumber": 2,
+          "label": "T10 - Row C - Seat 2",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T10-Seat-3",
+          "tableNo": "T10",
+          "row": "C",
+          "seatNumber": 3,
+          "label": "T10 - Row C - Seat 3",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T10-Seat-4",
+          "tableNo": "T10",
+          "row": "C",
+          "seatNumber": 4,
+          "label": "T10 - Row C - Seat 4",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T10-Seat-5",
+          "tableNo": "T10",
+          "row": "C",
+          "seatNumber": 5,
+          "label": "T10 - Row C - Seat 5",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T10-Seat-6",
+          "tableNo": "T10",
+          "row": "C",
+          "seatNumber": 6,
+          "label": "T10 - Row C - Seat 6",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T10-Seat-7",
+          "tableNo": "T10",
+          "row": "C",
+          "seatNumber": 7,
+          "label": "T10 - Row C - Seat 7",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T10-Seat-8",
+          "tableNo": "T10",
+          "row": "C",
+          "seatNumber": 8,
+          "label": "T10 - Row C - Seat 8",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        }
+      ]
+    },
+    {
+      "id": "T11",
+      "name": "Table 11",
+      "row": "C",
+      "capacity": 8,
+      "seats": [
+        {
+          "id": "T11-Seat-1",
+          "tableNo": "T11",
+          "row": "C",
+          "seatNumber": 1,
+          "label": "T11 - Row C - Seat 1",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T11-Seat-2",
+          "tableNo": "T11",
+          "row": "C",
+          "seatNumber": 2,
+          "label": "T11 - Row C - Seat 2",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T11-Seat-3",
+          "tableNo": "T11",
+          "row": "C",
+          "seatNumber": 3,
+          "label": "T11 - Row C - Seat 3",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T11-Seat-4",
+          "tableNo": "T11",
+          "row": "C",
+          "seatNumber": 4,
+          "label": "T11 - Row C - Seat 4",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T11-Seat-5",
+          "tableNo": "T11",
+          "row": "C",
+          "seatNumber": 5,
+          "label": "T11 - Row C - Seat 5",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T11-Seat-6",
+          "tableNo": "T11",
+          "row": "C",
+          "seatNumber": 6,
+          "label": "T11 - Row C - Seat 6",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T11-Seat-7",
+          "tableNo": "T11",
+          "row": "C",
+          "seatNumber": 7,
+          "label": "T11 - Row C - Seat 7",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T11-Seat-8",
+          "tableNo": "T11",
+          "row": "C",
+          "seatNumber": 8,
+          "label": "T11 - Row C - Seat 8",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        }
+      ]
+    },
+    {
+      "id": "T12",
+      "name": "Table 12",
+      "row": "C",
+      "capacity": 8,
+      "seats": [
+        {
+          "id": "T12-Seat-1",
+          "tableNo": "T12",
+          "row": "C",
+          "seatNumber": 1,
+          "label": "T12 - Row C - Seat 1",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T12-Seat-2",
+          "tableNo": "T12",
+          "row": "C",
+          "seatNumber": 2,
+          "label": "T12 - Row C - Seat 2",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T12-Seat-3",
+          "tableNo": "T12",
+          "row": "C",
+          "seatNumber": 3,
+          "label": "T12 - Row C - Seat 3",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T12-Seat-4",
+          "tableNo": "T12",
+          "row": "C",
+          "seatNumber": 4,
+          "label": "T12 - Row C - Seat 4",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T12-Seat-5",
+          "tableNo": "T12",
+          "row": "C",
+          "seatNumber": 5,
+          "label": "T12 - Row C - Seat 5",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T12-Seat-6",
+          "tableNo": "T12",
+          "row": "C",
+          "seatNumber": 6,
+          "label": "T12 - Row C - Seat 6",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T12-Seat-7",
+          "tableNo": "T12",
+          "row": "C",
+          "seatNumber": 7,
+          "label": "T12 - Row C - Seat 7",
+          "type": "general",
+          "status": "FREE",
+          "participantId": null
+        },
+        {
+          "id": "T12-Seat-8",
+          "tableNo": "T12",
+          "row": "C",
+          "seatNumber": 8,
+          "label": "T12 - Row C - Seat 8",
+          "type": "accessible",
+          "status": "RESERVED",
+          "participantId": null
+        }
+      ]
+    }
+  ],
+  "teams": [
+    {
+      "id": "team-1",
+      "name": "CodeNova",
+      "size": 4,
+      "members_arrived": 3,
+      "slot_status": "CONFIRMED",
+      "table_id": "T3",
+      "row": "B",
+      "status": "Checked-in"
+    },
+    {
+      "id": "team-2",
+      "name": "ByteForce",
+      "size": 4,
+      "members_arrived": 2,
+      "slot_status": "CONFIRMED",
+      "table_id": "T5",
+      "row": "A",
+      "status": "Checked-in"
+    },
+    {
+      "id": "team-3",
+      "name": "DevDynasty",
+      "size": 4,
+      "members_arrived": 1,
+      "slot_status": "PENDING",
+      "table_id": "T1",
+      "row": "C",
+      "status": "Pending"
+    },
+    {
+      "id": "team-4",
+      "name": "CyberKnights",
+      "size": 3,
+      "members_arrived": 0,
+      "slot_status": "CONFIRMED",
+      "table_id": "T2",
+      "row": "A",
+      "status": "Pending"
+    },
+    {
+      "id": "team-5",
+      "name": "CloudArchitects",
+      "size": 4,
+      "members_arrived": 4,
+      "slot_status": "CONFIRMED",
+      "table_id": "T4",
+      "row": "A",
+      "status": "Seated"
+    },
+    {
+      "id": "team-6",
+      "name": "QuantumLeap",
+      "size": 4,
+      "members_arrived": 3,
+      "slot_status": "CONFIRMED",
+      "table_id": "T6",
+      "row": "B",
+      "status": "Checked-in"
+    }
+  ],
+  "participants": [
+    {
+      "id": "p-187",
+      "ticketId": "HU-26-0187",
+      "name": "Aarav Sharma",
+      "email": "aarav.sharma@example.com",
+      "phone": "+91 98765 43210",
+      "teamId": "team-1",
+      "teamName": "CodeNova",
+      "diet": "Veg",
+      "slotStatus": "CONFIRMED",
+      "isCheckedIn": false,
+      "checkedInAt": null,
+      "seatId": "T3-Seat-1",
+      "assignedSeat": "T3 - Row A - Seat 1"
+    },
+    {
+      "id": "p-188",
+      "ticketId": "HU-26-0188",
+      "name": "Meera Kapoor",
+      "email": "meera.k@example.com",
+      "phone": "+91 98765 43211",
+      "teamId": "team-1",
+      "teamName": "CodeNova",
+      "diet": "Non-Veg",
+      "slotStatus": "CONFIRMED",
+      "isCheckedIn": false,
+      "checkedInAt": null,
+      "seatId": null,
+      "assignedSeat": null
+    },
+    {
+      "id": "p-185",
+      "ticketId": "HU-26-0185",
+      "name": "Priya Nair",
+      "email": "priya.n@example.com",
+      "phone": "+91 98765 43212",
+      "teamId": "team-1",
+      "teamName": "CodeNova",
+      "diet": "Veg",
+      "slotStatus": "CONFIRMED",
+      "isCheckedIn": true,
+      "checkedInAt": "2026-11-08T11:33:21.037Z",
+      "seatId": "T3-Seat-5",
+      "assignedSeat": "T3 - Row B - Seat 5"
+    },
+    {
+      "id": "p-186",
+      "ticketId": "HU-26-0186",
+      "name": "Dev Patel",
+      "email": "dev.p@example.com",
+      "phone": "+91 98765 43213",
+      "teamId": "team-1",
+      "teamName": "CodeNova",
+      "diet": "Jain",
+      "slotStatus": "CONFIRMED",
+      "isCheckedIn": true,
+      "checkedInAt": "2026-11-08T12:03:21.038Z",
+      "seatId": "T3-Seat-6",
+      "assignedSeat": "T3 - Row B - Seat 6"
+    },
+    {
+      "id": "p-189",
+      "ticketId": "HU-26-0189",
+      "name": "Rohan Prakash",
+      "email": "rohan.p@example.com",
+      "phone": "+91 98765 43214",
+      "teamId": "team-2",
+      "teamName": "ByteForce",
+      "diet": "Veg",
+      "slotStatus": "CONFIRMED",
+      "isCheckedIn": false,
+      "checkedInAt": null,
+      "seatId": null,
+      "assignedSeat": null
+    },
+    {
+      "id": "p-190",
+      "ticketId": "HU-26-0190",
+      "name": "Isha Verma",
+      "email": "isha.v@example.com",
+      "phone": "+91 98765 43215",
+      "teamId": "team-2",
+      "teamName": "ByteForce",
+      "diet": "Jain",
+      "slotStatus": "CONFIRMED",
+      "isCheckedIn": false,
+      "checkedInAt": null,
+      "seatId": null,
+      "assignedSeat": null
+    },
+    {
+      "id": "p-194",
+      "ticketId": "HU-26-0194",
+      "name": "Tanmay Roy",
+      "email": "tanmay.r@example.com",
+      "phone": "+91 98765 43216",
+      "teamId": "team-2",
+      "teamName": "ByteForce",
+      "diet": "Non-Veg",
+      "slotStatus": "CONFIRMED",
+      "isCheckedIn": true,
+      "checkedInAt": "2026-11-08T12:33:21.038Z",
+      "seatId": "T5-Seat-2",
+      "assignedSeat": "T5 - Row A - Seat 2"
+    },
+    {
+      "id": "p-195",
+      "ticketId": "HU-26-0195",
+      "name": "Aryan Singh",
+      "email": "aryan.s@example.com",
+      "phone": "+91 98765 43217",
+      "teamId": "team-2",
+      "teamName": "ByteForce",
+      "diet": "Veg",
+      "slotStatus": "CONFIRMED",
+      "isCheckedIn": true,
+      "checkedInAt": "2026-11-08T13:03:21.038Z",
+      "seatId": "T5-Seat-3",
+      "assignedSeat": "T5 - Row A - Seat 3"
+    },
+    {
+      "id": "p-191",
+      "ticketId": "HU-26-0191",
+      "name": "Kabir Joshi",
+      "email": "kabir.j@example.com",
+      "phone": "+91 98765 43218",
+      "teamId": "team-3",
+      "teamName": "DevDynasty",
+      "diet": "Non-Veg",
+      "slotStatus": "CONFIRMED",
+      "isCheckedIn": true,
+      "checkedInAt": "2026-11-08T13:18:21.038Z",
+      "seatId": "T1-Seat-7",
+      "assignedSeat": "T1 - Row C - Seat 7"
+    },
+    {
+      "id": "p-192",
+      "ticketId": "HU-26-0192",
+      "name": "Sneha Reddy",
+      "email": "sneha.r@example.com",
+      "phone": "+91 98765 43219",
+      "teamId": "team-3",
+      "teamName": "DevDynasty",
+      "diet": "Veg",
+      "slotStatus": "PENDING",
+      "isCheckedIn": false,
+      "checkedInAt": null,
+      "seatId": null,
+      "assignedSeat": null
+    },
+    {
+      "id": "p-193",
+      "ticketId": "HU-26-0193",
+      "name": "Vikram Rao",
+      "email": "vikram.r@example.com",
+      "phone": "+91 98765 43220",
+      "teamId": "team-4",
+      "teamName": "CyberKnights",
+      "diet": "Veg",
+      "slotStatus": "CONFIRMED",
+      "isCheckedIn": false,
+      "checkedInAt": null,
+      "seatId": null,
+      "assignedSeat": null
+    }
+  ],
+  "meals": [
+    {
+      "id": "meal-1",
+      "name": "Dinner - Day 1",
+      "day": 1,
+      "windowStart": "20:00",
+      "windowEnd": "22:00",
+      "status": "ACTIVE",
+      "counters": [
+        "Counter 1",
+        "Counter 2",
+        "Counter 3"
+      ]
+    },
+    {
+      "id": "meal-2",
+      "name": "Breakfast - Day 2",
+      "day": 2,
+      "windowStart": "08:00",
+      "windowEnd": "10:00",
+      "status": "UPCOMING",
+      "counters": [
+        "Counter 1",
+        "Counter 2"
+      ]
+    },
+    {
+      "id": "meal-3",
+      "name": "Lunch - Day 2",
+      "day": 2,
+      "windowStart": "13:00",
+      "windowEnd": "15:00",
+      "status": "UPCOMING",
+      "counters": [
+        "Counter 1",
+        "Counter 2",
+        "Counter 3"
+      ]
+    },
+    {
+      "id": "meal-4",
+      "name": "Evening Snacks - Day 2",
+      "day": 2,
+      "windowStart": "17:00",
+      "windowEnd": "18:30",
+      "status": "UPCOMING",
+      "counters": [
+        "Counter 1",
+        "Counter 2"
+      ]
+    }
+  ],
+  "coupons": [
+    {
+      "id": "cp-FC-0185-1-1",
+      "couponCode": "FC-0185-1-1",
+      "participantId": "p-185",
+      "participantName": "Priya Nair",
+      "diet": "Veg",
+      "mealId": "meal-1",
+      "mealName": "Dinner - Day 1",
+      "day": 1,
+      "window": "20:00 - 22:00",
+      "status": "REDEEMED",
+      "redeemedAt": "2026-11-08T13:13:21.039Z",
+      "redeemedBy": "Counter 2"
+    },
+    {
+      "id": "cp-FC-0185-2-2",
+      "couponCode": "FC-0185-2-2",
+      "participantId": "p-185",
+      "participantName": "Priya Nair",
+      "diet": "Veg",
+      "mealId": "meal-2",
+      "mealName": "Breakfast - Day 2",
+      "day": 2,
+      "window": "08:00 - 10:00",
+      "status": "UPCOMING",
+      "redeemedAt": null,
+      "redeemedBy": null
+    },
+    {
+      "id": "cp-FC-0185-2-3",
+      "couponCode": "FC-0185-2-3",
+      "participantId": "p-185",
+      "participantName": "Priya Nair",
+      "diet": "Veg",
+      "mealId": "meal-3",
+      "mealName": "Lunch - Day 2",
+      "day": 2,
+      "window": "13:00 - 15:00",
+      "status": "UPCOMING",
+      "redeemedAt": null,
+      "redeemedBy": null
+    },
+    {
+      "id": "cp-FC-0185-2-4",
+      "couponCode": "FC-0185-2-4",
+      "participantId": "p-185",
+      "participantName": "Priya Nair",
+      "diet": "Veg",
+      "mealId": "meal-4",
+      "mealName": "Evening Snacks - Day 2",
+      "day": 2,
+      "window": "17:00 - 18:30",
+      "status": "UPCOMING",
+      "redeemedAt": null,
+      "redeemedBy": null
+    },
+    {
+      "id": "cp-FC-0186-1-1",
+      "couponCode": "FC-0186-1-1",
+      "participantId": "p-186",
+      "participantName": "Dev Patel",
+      "diet": "Jain",
+      "mealId": "meal-1",
+      "mealName": "Dinner - Day 1",
+      "day": 1,
+      "window": "20:00 - 22:00",
+      "status": "VALID",
+      "redeemedAt": null,
+      "redeemedBy": null
+    },
+    {
+      "id": "cp-FC-0186-2-2",
+      "couponCode": "FC-0186-2-2",
+      "participantId": "p-186",
+      "participantName": "Dev Patel",
+      "diet": "Jain",
+      "mealId": "meal-2",
+      "mealName": "Breakfast - Day 2",
+      "day": 2,
+      "window": "08:00 - 10:00",
+      "status": "UPCOMING",
+      "redeemedAt": null,
+      "redeemedBy": null
+    },
+    {
+      "id": "cp-FC-0186-2-3",
+      "couponCode": "FC-0186-2-3",
+      "participantId": "p-186",
+      "participantName": "Dev Patel",
+      "diet": "Jain",
+      "mealId": "meal-3",
+      "mealName": "Lunch - Day 2",
+      "day": 2,
+      "window": "13:00 - 15:00",
+      "status": "UPCOMING",
+      "redeemedAt": null,
+      "redeemedBy": null
+    },
+    {
+      "id": "cp-FC-0186-2-4",
+      "couponCode": "FC-0186-2-4",
+      "participantId": "p-186",
+      "participantName": "Dev Patel",
+      "diet": "Jain",
+      "mealId": "meal-4",
+      "mealName": "Evening Snacks - Day 2",
+      "day": 2,
+      "window": "17:00 - 18:30",
+      "status": "UPCOMING",
+      "redeemedAt": null,
+      "redeemedBy": null
+    },
+    {
+      "id": "cp-FC-0194-1-1",
+      "couponCode": "FC-0194-1-1",
+      "participantId": "p-194",
+      "participantName": "Tanmay Roy",
+      "diet": "Non-Veg",
+      "mealId": "meal-1",
+      "mealName": "Dinner - Day 1",
+      "day": 1,
+      "window": "20:00 - 22:00",
+      "status": "VALID",
+      "redeemedAt": null,
+      "redeemedBy": null
+    },
+    {
+      "id": "cp-FC-0194-2-2",
+      "couponCode": "FC-0194-2-2",
+      "participantId": "p-194",
+      "participantName": "Tanmay Roy",
+      "diet": "Non-Veg",
+      "mealId": "meal-2",
+      "mealName": "Breakfast - Day 2",
+      "day": 2,
+      "window": "08:00 - 10:00",
+      "status": "UPCOMING",
+      "redeemedAt": null,
+      "redeemedBy": null
+    },
+    {
+      "id": "cp-FC-0194-2-3",
+      "couponCode": "FC-0194-2-3",
+      "participantId": "p-194",
+      "participantName": "Tanmay Roy",
+      "diet": "Non-Veg",
+      "mealId": "meal-3",
+      "mealName": "Lunch - Day 2",
+      "day": 2,
+      "window": "13:00 - 15:00",
+      "status": "UPCOMING",
+      "redeemedAt": null,
+      "redeemedBy": null
+    },
+    {
+      "id": "cp-FC-0194-2-4",
+      "couponCode": "FC-0194-2-4",
+      "participantId": "p-194",
+      "participantName": "Tanmay Roy",
+      "diet": "Non-Veg",
+      "mealId": "meal-4",
+      "mealName": "Evening Snacks - Day 2",
+      "day": 2,
+      "window": "17:00 - 18:30",
+      "status": "UPCOMING",
+      "redeemedAt": null,
+      "redeemedBy": null
+    },
+    {
+      "id": "cp-FC-0195-1-1",
+      "couponCode": "FC-0195-1-1",
+      "participantId": "p-195",
+      "participantName": "Aryan Singh",
+      "diet": "Veg",
+      "mealId": "meal-1",
+      "mealName": "Dinner - Day 1",
+      "day": 1,
+      "window": "20:00 - 22:00",
+      "status": "VALID",
+      "redeemedAt": null,
+      "redeemedBy": null
+    },
+    {
+      "id": "cp-FC-0195-2-2",
+      "couponCode": "FC-0195-2-2",
+      "participantId": "p-195",
+      "participantName": "Aryan Singh",
+      "diet": "Veg",
+      "mealId": "meal-2",
+      "mealName": "Breakfast - Day 2",
+      "day": 2,
+      "window": "08:00 - 10:00",
+      "status": "UPCOMING",
+      "redeemedAt": null,
+      "redeemedBy": null
+    },
+    {
+      "id": "cp-FC-0195-2-3",
+      "couponCode": "FC-0195-2-3",
+      "participantId": "p-195",
+      "participantName": "Aryan Singh",
+      "diet": "Veg",
+      "mealId": "meal-3",
+      "mealName": "Lunch - Day 2",
+      "day": 2,
+      "window": "13:00 - 15:00",
+      "status": "UPCOMING",
+      "redeemedAt": null,
+      "redeemedBy": null
+    },
+    {
+      "id": "cp-FC-0195-2-4",
+      "couponCode": "FC-0195-2-4",
+      "participantId": "p-195",
+      "participantName": "Aryan Singh",
+      "diet": "Veg",
+      "mealId": "meal-4",
+      "mealName": "Evening Snacks - Day 2",
+      "day": 2,
+      "window": "17:00 - 18:30",
+      "status": "UPCOMING",
+      "redeemedAt": null,
+      "redeemedBy": null
+    },
+    {
+      "id": "cp-FC-0191-1-1",
+      "couponCode": "FC-0191-1-1",
+      "participantId": "p-191",
+      "participantName": "Kabir Joshi",
+      "diet": "Non-Veg",
+      "mealId": "meal-1",
+      "mealName": "Dinner - Day 1",
+      "day": 1,
+      "window": "20:00 - 22:00",
+      "status": "VALID",
+      "redeemedAt": null,
+      "redeemedBy": null
+    },
+    {
+      "id": "cp-FC-0191-2-2",
+      "couponCode": "FC-0191-2-2",
+      "participantId": "p-191",
+      "participantName": "Kabir Joshi",
+      "diet": "Non-Veg",
+      "mealId": "meal-2",
+      "mealName": "Breakfast - Day 2",
+      "day": 2,
+      "window": "08:00 - 10:00",
+      "status": "UPCOMING",
+      "redeemedAt": null,
+      "redeemedBy": null
+    },
+    {
+      "id": "cp-FC-0191-2-3",
+      "couponCode": "FC-0191-2-3",
+      "participantId": "p-191",
+      "participantName": "Kabir Joshi",
+      "diet": "Non-Veg",
+      "mealId": "meal-3",
+      "mealName": "Lunch - Day 2",
+      "day": 2,
+      "window": "13:00 - 15:00",
+      "status": "UPCOMING",
+      "redeemedAt": null,
+      "redeemedBy": null
+    },
+    {
+      "id": "cp-FC-0191-2-4",
+      "couponCode": "FC-0191-2-4",
+      "participantId": "p-191",
+      "participantName": "Kabir Joshi",
+      "diet": "Non-Veg",
+      "mealId": "meal-4",
+      "mealName": "Evening Snacks - Day 2",
+      "day": 2,
+      "window": "17:00 - 18:30",
+      "status": "UPCOMING",
+      "redeemedAt": null,
+      "redeemedBy": null
+    },
+    {
+      "id": "cp-FC-0187-1-1",
+      "couponCode": "FC-0187-1-1",
+      "qrToken": "HU_CP_FC-0187-1-1_1794147675201_8e5f3200b29794a8",
+      "participantId": "p-187",
+      "participantName": "Aarav Sharma",
+      "diet": "Veg",
+      "mealId": "meal-1",
+      "mealName": "Dinner - Day 1",
+      "day": 1,
+      "window": "20:00 - 22:00",
+      "status": "REDEEMED",
+      "redeemedAt": "2026-11-08T14:21:15.202Z",
+      "redeemedBy": "Counter 2"
+    },
+    {
+      "id": "cp-FC-0187-2-2",
+      "couponCode": "FC-0187-2-2",
+      "qrToken": "HU_CP_FC-0187-2-2_1794147675201_ad539041db5cebc3",
+      "participantId": "p-187",
+      "participantName": "Aarav Sharma",
+      "diet": "Veg",
+      "mealId": "meal-2",
+      "mealName": "Breakfast - Day 2",
+      "day": 2,
+      "window": "08:00 - 10:00",
+      "status": "UPCOMING",
+      "redeemedAt": null,
+      "redeemedBy": null
+    },
+    {
+      "id": "cp-FC-0187-2-3",
+      "couponCode": "FC-0187-2-3",
+      "qrToken": "HU_CP_FC-0187-2-3_1794147675201_0741b753c08fd7af",
+      "participantId": "p-187",
+      "participantName": "Aarav Sharma",
+      "diet": "Veg",
+      "mealId": "meal-3",
+      "mealName": "Lunch - Day 2",
+      "day": 2,
+      "window": "13:00 - 15:00",
+      "status": "UPCOMING",
+      "redeemedAt": null,
+      "redeemedBy": null
+    },
+    {
+      "id": "cp-FC-0187-2-4",
+      "couponCode": "FC-0187-2-4",
+      "qrToken": "HU_CP_FC-0187-2-4_1794147675201_0338b23e3b523b38",
+      "participantId": "p-187",
+      "participantName": "Aarav Sharma",
+      "diet": "Veg",
+      "mealId": "meal-4",
+      "mealName": "Evening Snacks - Day 2",
+      "day": 2,
+      "window": "17:00 - 18:30",
+      "status": "UPCOMING",
+      "redeemedAt": null,
+      "redeemedBy": null
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": "log-coupon-1794147675203",
+      "action": "COUPON_REDEEMED",
+      "participant": "Aarav Sharma",
+      "details": "Dinner - Day 1 redeemed at Counter 2 (Veg)",
+      "actor": "Counter 2",
+      "timestamp": "2026-11-08T14:21:15.203Z"
+    },
+    {
+      "id": "log-1",
+      "action": "CHECKIN_CONFIRMED",
+      "participant": "Priya Nair (HU-26-0185)",
+      "team": "CodeNova",
+      "seat": "T3 - Row B - Seat 5",
+      "actor": "Coordinator Desk #1",
+      "timestamp": "2026-11-08T11:33:21.039Z"
+    },
+    {
+      "id": "log-2",
+      "action": "CHECKIN_CONFIRMED",
+      "participant": "Dev Patel (HU-26-0186)",
+      "team": "CodeNova",
+      "seat": "T3 - Row B - Seat 6",
+      "actor": "Coordinator Desk #2",
+      "timestamp": "2026-11-08T12:03:21.039Z"
+    },
+    {
+      "id": "log-3",
+      "action": "COUPON_REDEEMED",
+      "participant": "Priya Nair (HU-26-0185)",
+      "team": "CodeNova",
+      "details": "Dinner - Day 1 at Counter 2 (Veg)",
+      "actor": "Food Staff Counter 2",
+      "timestamp": "2026-11-08T13:13:21.039Z"
+    },
+    {
+      "id": "log-4",
+      "action": "CHECKIN_CONFIRMED",
+      "participant": "Tanmay Roy (HU-26-0194)",
+      "team": "ByteForce",
+      "seat": "T5 - Row A - Seat 2",
+      "actor": "Coordinator Desk #1",
+      "timestamp": "2026-11-08T12:33:21.039Z"
+    },
+    {
+      "id": "log-5",
+      "action": "CHECKIN_CONFIRMED",
+      "participant": "Kabir Joshi (HU-26-0191)",
+      "team": "DevDynasty",
+      "seat": "T1 - Row C - Seat 7",
+      "actor": "Coordinator Desk #3",
+      "timestamp": "2026-11-08T13:18:21.039Z"
+    }
+  ]
+}

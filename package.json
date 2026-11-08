@@ -1,0 +1,25 @@
+{
+  "name": "hackers-unity-platform",
+  "version": "1.0.0",
+  "description": "Hackathon QR Check-in and Smart Seating Platform for Hacker's Unity",
+  "scripts": {
+    "dev": "concurrently -n \"BACKEND,FRONTEND\" -c \"blue,cyan\" \"npm --prefix backend run dev\" \"npm --prefix frontend run dev\"",
+    "start": "concurrently -n \"BACKEND,FRONTEND\" -c \"blue,cyan\" \"npm --prefix backend start\" \"npm --prefix frontend run preview\"",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "build:frontend": "npm --prefix frontend run build",
+    "test:backend": "npm --prefix backend test",
+    "install:all": "npm --prefix backend install && npm --prefix frontend install"
+  },
+  "keywords": [
+    "hackers-unity",
+    "qr-checkin",
+    "smart-seating",
+    "groq-ai"
+  ],
+  "author": "Hacker's Unity Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^10.0.7"
+  }
+}
