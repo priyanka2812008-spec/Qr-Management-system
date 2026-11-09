@@ -16,7 +16,7 @@ import {
 import { useSocket } from '../context/SocketContext';
 
 export const Sidebar = ({ currentView, setCurrentView, onResetDemo }) => {
-  const { isConnected } = useSocket();
+  const { isConnected, isDemoMode } = useSocket();
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -214,9 +214,11 @@ export const Sidebar = ({ currentView, setCurrentView, onResetDemo }) => {
         {/* Live sync badge */}
         {!isCollapsed ? (
           <div
-            className={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold border ${
+            className={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold border transition-all ${
               isConnected
                 ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                : isDemoMode
+                ? 'bg-sky-50 text-sky-700 border-sky-200'
                 : 'bg-amber-50 text-amber-700 border-amber-200'
             }`}
           >
@@ -225,22 +227,30 @@ export const Sidebar = ({ currentView, setCurrentView, onResetDemo }) => {
             ) : (
               <WifiOff className="w-3.5 h-3.5 shrink-0" />
             )}
-            <span className="flex-1">{isConnected ? 'Live Sync Active' : 'Connecting…'}</span>
+            <span className="flex-1 truncate">
+              {isConnected ? 'Live Sync Active' : isDemoMode ? 'Demo Preview Mode' : 'Connecting…'}
+            </span>
             <span
               className={`w-2 h-2 rounded-full shrink-0 ${
-                isConnected ? 'bg-emerald-500 animate-pulse' : 'bg-amber-400'
+                isConnected
+                  ? 'bg-emerald-500 animate-pulse'
+                  : isDemoMode
+                  ? 'bg-sky-500'
+                  : 'bg-amber-400'
               }`}
             />
           </div>
         ) : (
           <div
             className="flex justify-center py-2"
-            title={isConnected ? 'Live Sync Active' : 'Connecting…'}
+            title={isConnected ? 'Live Sync Active' : isDemoMode ? 'Demo Preview Mode' : 'Connecting…'}
           >
             <span
               className={`w-2.5 h-2.5 rounded-full ${
                 isConnected
                   ? 'bg-emerald-500 animate-pulse ring-4 ring-emerald-100'
+                  : isDemoMode
+                  ? 'bg-sky-500 ring-4 ring-sky-100'
                   : 'bg-amber-400'
               }`}
             />
@@ -302,15 +312,17 @@ export const Sidebar = ({ currentView, setCurrentView, onResetDemo }) => {
           className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold border ${
             isConnected
               ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+              : isDemoMode
+              ? 'bg-sky-50 text-sky-700 border-sky-200'
               : 'bg-amber-50 text-amber-600 border-amber-200'
           }`}
         >
           <span
             className={`w-1.5 h-1.5 rounded-full ${
-              isConnected ? 'bg-emerald-500 animate-pulse' : 'bg-amber-400'
+              isConnected ? 'bg-emerald-500 animate-pulse' : isDemoMode ? 'bg-sky-500' : 'bg-amber-400'
             }`}
           />
-          {isConnected ? 'LIVE' : 'SYNC'}
+          {isConnected ? 'LIVE' : isDemoMode ? 'DEMO' : 'SYNC'}
         </div>
         <button
           onClick={onResetDemo}

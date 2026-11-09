@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Users, UserCheck, Clock, Utensils, Download, ArrowUpRight, Search, CheckCircle2, AlertCircle, ShieldCheck, KeyRound, Mail, BrainCircuit } from 'lucide-react';
 import { api } from '../services/api';
+import { fallbackStats } from '../services/mockData';
 import { useSocket } from '../context/SocketContext';
 
 export const DashboardView = ({ onNavigate }) => {
@@ -13,9 +14,10 @@ export const DashboardView = ({ onNavigate }) => {
   const fetchDashboardStats = async () => {
     try {
       const data = await api.getStats();
-      setStats(data);
+      setStats(data || fallbackStats);
     } catch (err) {
       console.error('Failed to load stats:', err);
+      setStats(fallbackStats);
     } finally {
       setLoading(false);
     }
@@ -81,7 +83,7 @@ export const DashboardView = ({ onNavigate }) => {
           <div className="flex items-center gap-2">
             <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Dashboard</h1>
             <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-sky-100 text-sky-800">
-              Live
+              {api.isOfflineMode() ? 'Demo Preview' : 'Live'}
             </span>
           </div>
           <p className="text-sm text-slate-500 mt-1">
@@ -108,6 +110,17 @@ export const DashboardView = ({ onNavigate }) => {
           </button>
         </div>
       </div>
+
+      {api.isOfflineMode() && (
+        <div className="bg-gradient-to-r from-sky-50 via-cyan-50 to-blue-50 border border-sky-200/80 text-sky-900 px-4 py-3 rounded-2xl text-xs flex items-center justify-between gap-3 shadow-xs">
+          <div className="flex items-center gap-2.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-sky-500 shrink-0"></span>
+            <span>
+              <strong>Zero-Lag Demo Mode:</strong> Viewing full interactive data. For real-time multi-device syncing across the web, deploy the backend to Render/Railway and add <code className="bg-white/80 px-1 py-0.5 rounded font-mono font-bold text-sky-800">VITE_API_URL</code> in Vercel.
+            </span>
+          </div>
+        </div>
+      )}
 
       {/* 4 Live Counters Grid (Page 4 of PDF) */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
