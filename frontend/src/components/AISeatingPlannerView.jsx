@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BrainCircuit, Check, RefreshCw, Sparkles, FileSpreadsheet, ShieldAlert, ArrowLeftRight, CheckCircle2, Upload, FileCheck, AlertCircle, X } from 'lucide-react';
+import * as XLSX from 'xlsx';
 import { api } from '../services/api';
 import { useSocket } from '../context/SocketContext';
 
@@ -24,32 +25,131 @@ export const AISeatingPlannerView = () => {
 
   const { socket } = useSocket();
 
-  // ── CSV Parser (pure JS, no library needed) ──────────────────────────────
-  const parseCSV = (text) => {
+  // ── Universal Excel / CSV Sheet Parser (using XLSX library) ─────────────
+  const parseSheetData = (arrayBuffer, fileName = '') => {
     try {
-      const lines = text.split('\n').filter(l => l.trim() && !l.startsWith('#'));
-      if (lines.length < 2) return null;
+      const workbook = XLSX.read(arrayBuffer, { type: 'array' });
+      if (!workbook || !workbook.SheetNames || workbook.SheetNames.length === 0) {
+        return null;
+      }
 
-      // Find participant section — look for a header row with "Name" column
-      let headerIdx = lines.findIndex(l =>
-        l.toLowerCase().includes('name') && l.toLowerCase().includes('team')
-      );
-      if (headerIdx === -1) headerIdx = 0;
+      // Check if there is a sheet named "Participants" or inspect all sheets
+      let targetSheetName = workbook.SheetNames.find(s =>
+        s.toLowerCase().includes('participant') || s.toLowerCase().includes('attendee') || s.toLowerCase().includes('student')
+      ) || workbook.SheetNames[0];
 
-      const headers = lines[headerIdx].split(',').map(h => h.trim().toLowerCase().replace(/"/g, ''));
-      const nameCol = headers.findIndex(h => h === 'name' || h === 'participant name');
-      const teamCol = headers.findIndex(h => h === 'team' || h === 'team name');
-      const dietCol = headers.findIndex(h => h === 'diet' || h === 'diet type' || h === 'dietary');
+      let rawRows = XLSX.utils.sheet_to_json(workbook.Sheets[targetSheetName], { header: 1, blankrows: false });
 
-      const dataRows = lines.slice(headerIdx + 1).filter(l => l.trim() && !l.startsWith('#'));
-      const participants = dataRows.map(row => {
-        const cols = row.split(',').map(c => c.trim().replace(/"/g, ''));
-        return {
-          name: nameCol >= 0 ? cols[nameCol] : cols[0] || 'Unknown',
-          team: teamCol >= 0 ? cols[teamCol] : cols[2] || 'General',
-          diet: dietCol >= 0 ? cols[dietCol] : 'Veg',
-        };
-      }).filter(p => p.name && p.name !== 'Unknown');
+      // If chosen sheet has fewer than 2 rows and multiple sheets exist, find sheet with most rows
+      if (rawRows.length < 2 && workbook.SheetNames.length > 1) {
+        let maxRows = 0;
+        for (const sName of workbook.SheetNames) {
+          const rows = XLSX.utils.sheet_to_json(workbook.Sheets[sName], { header: 1, blankrows: false });
+          if (rows.length > maxRows) {
+            maxRows = rows.length;
+            targetSheetName = sName;
+            rawRows = rows;
+          }
+        }
+      }
+
+      // If file contains multi-tab comments like "# TAB 3: Participants" (from template CSV)
+      // Find the row that contains 'name'
+      let headerRowIdx = -1;
+      for (let i = 0; i < rawRows.length; i++) {
+        const row = rawRows[i];
+        if (Array.isArray(row)) {
+          const rowStr = row.map(c => String(c || '').toLowerCase()).join(' ');
+          if (rowStr.includes('name') && (rowStr.includes('team') || rowStr.includes('email') || rowStr.includes('diet') || rowStr.includes('role'))) {
+            headerRowIdx = i;
+            break;
+          }
+        }
+      }
+
+      // Fallback: search for any row containing 'name'
+      if (headerRowIdx === -1) {
+        for (let i = 0; i < rawRows.length; i++) {
+          const row = rawRows[i];
+          if (Array.isArray(row)) {
+            const hasName = row.some(c => {
+              const val = String(c || '').trim().toLowerCase();
+              return val === 'name' || val === 'full name' || val === 'participant' || val === 'participant name';
+            });
+            if (hasName) {
+              headerRowIdx = i;
+              break;
+            }
+          }
+        }
+      }
+
+      // If still not found, use first row with at least 2 non-empty cells
+      if (headerRowIdx === -1) {
+        headerRowIdx = rawRows.findIndex(r => Array.isArray(r) && r.filter(c => String(c || '').trim()).length >= 2);
+      }
+      if (headerRowIdx === -1) headerRowIdx = 0;
+
+      const headerRow = (rawRows[headerRowIdx] || []).map(c => String(c || '').trim().toLowerCase());
+
+      const findCol = (aliases) => {
+        return headerRow.findIndex(h => aliases.some(a => h.includes(a)));
+      };
+
+      const nameCol = findCol(['name', 'participant', 'candidate', 'student', 'member', 'attendee']);
+      const teamCol = findCol(['team', 'group', 'squad', 'project']);
+      const dietCol = findCol(['diet', 'food', 'meal', 'preference']);
+      const emailCol = findCol(['email', 'mail']);
+
+      const dataRows = rawRows.slice(headerRowIdx + 1);
+      const participants = [];
+
+      dataRows.forEach((row, idx) => {
+        if (!Array.isArray(row) || row.length === 0) return;
+        // Ignore section headers / comments like "# TAB 1", etc.
+        const firstCell = String(row[0] || '').trim();
+        if (firstCell.startsWith('#') || firstCell.startsWith('//')) return;
+
+        let name = '';
+        if (nameCol >= 0 && row[nameCol]) {
+          name = String(row[nameCol]).trim();
+        } else if (firstCell) {
+          name = firstCell;
+        }
+
+        // Ignore rows that look like another header
+        if (!name || name.toLowerCase() === 'name' || name.toLowerCase().includes('total tables')) return;
+
+        let team = 'General';
+        if (teamCol >= 0 && row[teamCol]) {
+          team = String(row[teamCol]).trim();
+        } else {
+          // Auto group every 4 members into teams if team column missing
+          team = `Team-${Math.floor(participants.length / 4) + 1}`;
+        }
+
+        let diet = 'Veg';
+        if (dietCol >= 0 && row[dietCol]) {
+          diet = String(row[dietCol]).trim();
+        }
+
+        let email = '';
+        if (emailCol >= 0 && row[emailCol]) {
+          email = String(row[emailCol]).trim();
+        }
+
+        participants.push({
+          id: `p-uploaded-${idx + 1}`,
+          name,
+          team,
+          diet,
+          email
+        });
+      });
+
+      if (participants.length === 0) {
+        return null;
+      }
 
       const teams = [...new Set(participants.map(p => p.team))].filter(Boolean);
       const dietCounts = participants.reduce((acc, p) => {
@@ -60,7 +160,9 @@ export const AISeatingPlannerView = () => {
       const totalParticipants = participants.length;
       const teamCount = teams.length;
       const tablesNeeded = Math.max(12, Math.ceil(totalParticipants / 8));
-      const mealsCount = [...new Set(Object.keys(dietCounts))].length || 4;
+      const mealsCount = Object.keys(dietCounts).length || 4;
+
+      const summaryText = participants.slice(0, 30).map(p => `${p.name} (${p.team}, ${p.diet})`).join(', ');
 
       return {
         participants,
@@ -70,10 +172,10 @@ export const AISeatingPlannerView = () => {
         tables: tablesNeeded,
         mealsCount,
         dietCounts,
-        rawText: text,
+        rawText: `Uploaded ${fileName}: ${totalParticipants} participants, ${teamCount} teams. Samples: ${summaryText}`,
       };
     } catch (e) {
-      console.error('CSV parse error:', e);
+      console.error('Sheet parse error:', e);
       return null;
     }
   };
@@ -83,30 +185,28 @@ export const AISeatingPlannerView = () => {
     if (!file) return;
     setUploadError(null);
 
-    const allowedTypes = ['text/csv', 'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'text/plain'];
-    const isAllowed = allowedTypes.includes(file.type) || file.name.endsWith('.csv') || file.name.endsWith('.xlsx') || file.name.endsWith('.xls');
-
-    if (!isAllowed) {
-      setUploadError('Only CSV or Excel (.xlsx/.xls) files are supported.');
-      return;
-    }
-
     const reader = new FileReader();
     reader.onload = (e) => {
-      const text = e.target.result;
-      const parsed = parseCSV(text);
-      if (!parsed || parsed.participants.length === 0) {
-        setUploadError('Could not parse file. Please use the template CSV format.');
-        setUploadedFile(null);
-        setParsedSheetData(null);
-      } else {
-        setParsedSheetData(parsed);
-        setUploadedFile(file);
-        setUploadError(null);
+      try {
+        const arrayBuffer = e.target.result;
+        const parsed = parseSheetData(arrayBuffer, file.name);
+
+        if (!parsed || parsed.participants.length === 0) {
+          setUploadError('Could not find participant rows in file. Please ensure sheet contains participant names and teams.');
+          setUploadedFile(null);
+          setParsedSheetData(null);
+        } else {
+          setParsedSheetData(parsed);
+          setUploadedFile(file);
+          setUploadError(null);
+        }
+      } catch (err) {
+        console.error('File parsing error:', err);
+        setUploadError('Error parsing sheet format. Please verify file is a valid Excel or CSV.');
       }
     };
-    reader.onerror = () => setUploadError('Failed to read file. Please try again.');
-    reader.readAsText(file);
+    reader.onerror = () => setUploadError('Failed to read file from disk. Please try again.');
+    reader.readAsArrayBuffer(file);
   };
 
   const handleDrop = (e) => {
@@ -162,33 +262,65 @@ export const AISeatingPlannerView = () => {
     };
   }, [socket]);
 
-  const downloadSheetTemplate = () => {
-    const csvContent = `data:text/csv;charset=utf-8,
-# TAB 1: Seating_Config
-Hall Name,Total Tables,Rows,Seats Per Table,Reserved Seats,Accessibility Seats
-Main Hall,12,3,8,"T1-1,T1-2",T12-8
+  const downloadSheetTemplate = (format = 'xlsx') => {
+    if (format === 'xlsx') {
+      try {
+        const wb = XLSX.utils.book_new();
+        const participantsData = [
+          ['Name', 'Email', 'Team', 'Team Size', 'Diet', 'Special Needs'],
+          ['Aarav Sharma', 'aarav@example.com', 'CodeNova', 4, 'Veg', 'None'],
+          ['Meera Kapoor', 'meera@example.com', 'CodeNova', 4, 'Non-Veg', 'None'],
+          ['Priya Nair', 'priya@example.com', 'CodeNova', 4, 'Veg', 'None'],
+          ['Dev Patel', 'dev@example.com', 'CodeNova', 4, 'Jain', 'None'],
+          ['Rohan Prakash', 'rohan@example.com', 'ByteForce', 4, 'Veg', 'None'],
+          ['Isha Verma', 'isha@example.com', 'ByteForce', 4, 'Jain', 'None'],
+          ['Tanmay Roy', 'tanmay@example.com', 'ByteForce', 4, 'Non-Veg', 'None'],
+          ['Aryan Singh', 'aryan@example.com', 'ByteForce', 4, 'Veg', 'None'],
+          ['Kabir Joshi', 'kabir@example.com', 'DevDynasty', 4, 'Non-Veg', 'None'],
+          ['Sneha Reddy', 'sneha@example.com', 'DevDynasty', 4, 'Veg', 'Wheelchair Access'],
+          ['Vikram Rao', 'vikram@example.com', 'CyberKnights', 3, 'Veg', 'None'],
+          ['Ananya Sen', 'ananya@example.com', 'CyberKnights', 3, 'Non-Veg', 'None']
+        ];
+        const wsParticipants = XLSX.utils.aoa_to_sheet(participantsData);
+        XLSX.utils.book_append_sheet(wb, wsParticipants, 'Participants');
 
-# TAB 2: Food_Plan
-Meal Name,Day,Start Time,End Time,Diet Types,Counters
-Dinner,1,20:00,22:00,"Veg,Non-Veg,Jain","Counter 1,Counter 2,Counter 3"
-Breakfast,2,08:00,10:00,"Veg,Non-Veg,Jain","Counter 1,Counter 2"
-Lunch,2,13:00,15:00,"Veg,Non-Veg,Jain","Counter 1,Counter 2,Counter 3"
-Evening Snacks,2,17:00,18:30,"Veg,Non-Veg,Jain","Counter 1,Counter 2"
+        const seatingData = [
+          ['Hall Name', 'Total Tables', 'Rows', 'Seats Per Table', 'Reserved Seats'],
+          ['Main Hall', 12, 3, 8, 'T1-1, T1-2, T12-8']
+        ];
+        const wsSeating = XLSX.utils.aoa_to_sheet(seatingData);
+        XLSX.utils.book_append_sheet(wb, wsSeating, 'Seating_Config');
 
-# TAB 3: Participants
-Name,Email,Team,Team Size,Diet,Special Needs
+        XLSX.writeFile(wb, 'hackers_unity_sample_sheet.xlsx');
+        return;
+      } catch (err) {
+        console.warn('XLSX download failed, falling back to CSV', err);
+      }
+    }
+
+    const csvContent = `Name,Email,Team,Team Size,Diet,Special Needs
 Aarav Sharma,aarav@example.com,CodeNova,4,Veg,None
 Meera Kapoor,meera@example.com,CodeNova,4,Non-Veg,None
+Priya Nair,priya@example.com,CodeNova,4,Veg,None
+Dev Patel,dev@example.com,CodeNova,4,Jain,None
 Rohan Prakash,rohan@example.com,ByteForce,4,Veg,None
 Isha Verma,isha@example.com,ByteForce,4,Jain,None
+Tanmay Roy,tanmay@example.com,ByteForce,4,Non-Veg,None
+Aryan Singh,aryan@example.com,ByteForce,4,Veg,None
+Kabir Joshi,kabir@example.com,DevDynasty,4,Non-Veg,None
+Sneha Reddy,sneha@example.com,DevDynasty,4,Veg,Wheelchair Access
+Vikram Rao,vikram@example.com,CyberKnights,3,Veg,None
+Ananya Sen,ananya@example.com,CyberKnights,3,Non-Veg,None
 `;
-    const encodedUri = encodeURI(csvContent);
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
-    link.setAttribute("href", encodedUri);
+    link.setAttribute("href", url);
     link.setAttribute("download", "hackers_unity_sample_sheet.csv");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   };
 
   const handleGeneratePlan = async () => {
@@ -424,7 +556,7 @@ Isha Verma,isha@example.com,ByteForce,4,Jain,None
               <p className="text-xs text-slate-400">Reads Google Sheet & generates layout</p>
             </div>
           </div>
-
+ 
           {/* Upload Sheet */}
           <div className="space-y-2">
             <div className="flex items-center justify-between">
@@ -432,12 +564,23 @@ Isha Verma,isha@example.com,ByteForce,4,Jain,None
                 <FileSpreadsheet className="w-3.5 h-3.5 text-emerald-600" />
                 <span>Upload Participants Sheet</span>
               </label>
-              <button
-                onClick={downloadSheetTemplate}
-                className="text-[10px] text-sky-600 hover:text-sky-800 font-bold underline cursor-pointer"
-              >
-                Download Template CSV
-              </button>
+              <div className="flex items-center gap-1.5 text-[10px]">
+                <button
+                  type="button"
+                  onClick={() => downloadSheetTemplate('xlsx')}
+                  className="text-sky-600 hover:text-sky-800 font-bold underline cursor-pointer"
+                >
+                  Template (.xlsx)
+                </button>
+                <span className="text-slate-300">|</span>
+                <button
+                  type="button"
+                  onClick={() => downloadSheetTemplate('csv')}
+                  className="text-sky-600 hover:text-sky-800 font-bold underline cursor-pointer"
+                >
+                  .csv
+                </button>
+              </div>
             </div>
 
             {/* Uploaded file pill */}
