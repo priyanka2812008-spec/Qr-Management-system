@@ -358,7 +358,7 @@ Isha Verma,isha@example.com,ByteForce,4,Jain,None
                     </span>
                   )}
                 </div>
-                <p className="text-[11px] text-emerald-700 leading-relaxed">{generatedPlan.ai_reasoning}</p>
+                <p className="text-[11px] text-emerald-700 leading-relaxed">{generatedPlan.ai_reasoning || generatedPlan.reasoning}</p>
               </div>
 
               {approvalMessage && (
