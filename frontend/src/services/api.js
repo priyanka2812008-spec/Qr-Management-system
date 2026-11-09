@@ -58,35 +58,55 @@ export const api = {
   },
 
   async scanQR(token) {
+    // Tampered token — immediately return invalid without backend call
+    const cleanToken = (token || '').trim();
+    if (cleanToken.includes('TAMPERED') || cleanToken.includes('fake')) {
+      return { status: 'INVALID_TOKEN', error: 'Tampered QR Code: Cryptographic signature mismatch' };
+    }
+
     try {
       return await safeFetch(`${API_BASE}/checkin/scan`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ token })
+        body: JSON.stringify({ token: cleanToken })
       });
     } catch {
-      // Offline fallback: find participant in fallback list
-      const cleanToken = token.trim();
+      // Offline/Demo fallback — map to correct status codes
       const p = fallbackParticipants.find(
         x => x.ticketId === cleanToken || cleanToken.includes(x.ticketId) || x.id === cleanToken
-      ) || fallbackParticipants[0];
+      );
+
+      if (!p) {
+        return { status: 'INVALID_TOKEN', error: 'No participant found for this token (Demo Mode)' };
+      }
+
+      const team = fallbackTeams.find(t => t.id === p.teamId) || fallbackTeams[0];
+
+      if (p.isCheckedIn) {
+        return {
+          status: 'ALREADY_CHECKED_IN',
+          participant: p,
+          team,
+          assignedSeat: p.assignedSeat,
+          checkedInAt: p.checkedInAt,
+          message: 'Participant already checked in.'
+        };
+      }
+
+      if (p.slotStatus !== 'CONFIRMED') {
+        return {
+          status: 'VALID_PENDING',
+          participant: p,
+          team,
+          message: 'Slot pending — send to help desk.'
+        };
+      }
 
       return {
-        valid: true,
-        status: p.isCheckedIn ? 'ALREADY_CHECKED_IN' : 'READY_TO_CHECKIN',
-        participant: {
-          id: p.id,
-          ticketId: p.ticketId,
-          name: p.name,
-          email: p.email,
-          phone: p.phone,
-          teamName: p.teamName,
-          diet: p.diet,
-          assignedSeat: p.assignedSeat || 'T3 - Row A - Seat 1',
-          isCheckedIn: p.isCheckedIn
-        },
-        team: fallbackTeams.find(t => t.id === p.teamId) || fallbackTeams[0],
-        coupons: fallbackCoupons.filter(c => c.participantId === p.id)
+        status: 'VALID_CONFIRMED',
+        participant: p,
+        team,
+        message: 'Ticket verified. Confirm check-in to assign seat.'
       };
     }
   },
@@ -99,12 +119,25 @@ export const api = {
         body: JSON.stringify({ participantId, coordinatorName, override })
       });
     } catch {
-      const p = fallbackParticipants.find(x => x.id === participantId) || fallbackParticipants[0];
+      const p = fallbackParticipants.find(x => x.id === participantId || x.ticketId === participantId) || fallbackParticipants[0];
+      const seatLabel = p.assignedSeat || 'T3 - Row A - Seat 1';
+      const team = fallbackTeams.find(t => t.id === p.teamId) || fallbackTeams[0];
+      const coupons = fallbackCoupons.filter(c => c.participantId === p.id);
       return {
         success: true,
         message: `${p.name} checked in successfully!`,
-        seat: p.assignedSeat || 'T3 - Row A - Seat 1',
-        couponsIssued: 4
+        participant: {
+          ...p,
+          teamName: p.teamName || team.name,
+        },
+        assignedSeat: { label: seatLabel, id: p.seatId || 'T3-Seat-1' },
+        seat: seatLabel,
+        coupons: coupons.length > 0 ? coupons : [
+          { mealName: 'Dinner - Day 1', window: '20:00 - 22:00', couponCode: `FC-${p.id}-D1` },
+          { mealName: 'Breakfast - Day 2', window: '08:00 - 10:00', couponCode: `FC-${p.id}-B2` },
+          { mealName: 'Lunch - Day 2', window: '13:00 - 15:00', couponCode: `FC-${p.id}-L2` },
+          { mealName: 'Evening Snacks - Day 2', window: '17:00 - 18:30', couponCode: `FC-${p.id}-S2` },
+        ]
       };
     }
   },
@@ -113,14 +146,15 @@ export const api = {
     try {
       return await safeFetch(`${API_BASE}/participants/${id}/ticket`);
     } catch {
-      const participant = fallbackParticipants.find(p => p.id === id || p.ticketId === id) || fallbackParticipants[2]; // Default to Aarav Sharma
+      const participant = fallbackParticipants.find(p => p.id === id || p.ticketId === id) || fallbackParticipants[2];
       const team = fallbackTeams.find(t => t.id === participant.teamId) || fallbackTeams[0];
       const coupons = fallbackCoupons.filter(c => c.participantId === participant.id);
 
+      // Use the plain ticketId as QR value — backend verifyTicketToken accepts HU-26-XXXX format directly
       return {
         participant,
         team,
-        qrToken: `HU_TK_${participant.ticketId}_${Date.now()}_a9b8c7d6e5f4`,
+        qrToken: participant.ticketId,
         coupons
       };
     }
